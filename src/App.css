@@ -1,0 +1,224 @@
+* {
+    font-family: Arial, Helvetica, sans-serif;
+  }
+  
+  #root {
+    background-color:  #71301A;
+    height: 100vh;
+  } 
+  
+  .App {
+    text-align: center;
+    background-color: #71301A;
+  }
+  
+  .App-header {
+    background-color: #282c34;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: calc(10px + 2vmin);
+    color: white;
+  }
+  
+  .App-link {
+    color: #61dafb;
+  }
+  
+  @keyframes App-logo-spin {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+  }
+  
+  /* About */
+  
+  .aboutGrid {
+    /* TODO these importants should not be necessary... */
+    margin: 8px 8px !important;
+  }
+  
+  .headingSpacer {
+    margin: 8px 0px !important;
+  }
+  
+  /* */
+  
+  
+  /* Dashboard */
+  .DashboardContainer {
+    /* [console log] change this later! */
+    background-color: #666;
+    color: #999;
+    height: 50px;
+  }
+  
+  .DashboardButtonHolder {
+    justify-content: space-around;
+    align-items: center;
+  }
+  
+  .navButtons {
+    color: #999 !important;
+  }
+  
+  /* */
+  
+  
+  /* Navbar */
+  .navigationLink {
+    text-decoration: none;
+    color: White;
+  }
+  
+  .navigationText {
+    color: rgb(210, 195, 195);
+    font-size: 20px !important;
+  }
+  
+  /* */
+  
+  /*  */
+    .englishText {
+      font-size: 14px;
+      padding: 12px 0px;
+    }
+  
+    .japaneseRomanizedText {
+      font-size: 11px;
+    }
+  
+    .japaneseCharacterText {
+      font-size: 11px;
+    }
+  
+  /* */
+  
+  /* Youtube Video */
+  
+  .ytVideoContainer {
+    position: sticky;
+    top: 25px;
+    z-index: 100;
+  }
+  
+  .textContainer {
+    margin: 24px 0px !important;
+    padding: 8px !important;
+    border: 3px solid rgb(57, 18, 21);
+    background-color: #a41f15;
+    color: white;
+  }
+  
+  .translationMarginTop {
+    marginTop: 30vh;
+  }
+  
+  .yt-lite {
+    background-color: #000;
+    position: relative;
+    display: block;
+    contain: content;
+    background-position: center center;
+    background-size: cover;
+    cursor: pointer;
+  }
+  
+  /* TODO stack these media queries! */
+  @media only screen and (min-width: 600px) {
+    .yt-lite {
+      background-size: contain;
+      background-repeat: no-repeat;
+    }
+  }
+  
+  /* gradient */
+  .yt-lite::before {
+    content: '';
+    display: block;
+    position: absolute;
+    top: 0;
+    background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAADGCAYAAAAT+OqFAAAAdklEQVQoz42QQQ7AIAgEF/T/D+kbq/RWAlnQyyazA4aoAB4FsBSA/bFjuF1EOL7VbrIrBuusmrt4ZZORfb6ehbWdnRHEIiITaEUKa5EJqUakRSaEYBJSCY2dEstQY7AuxahwXFrvZmWl2rh4JZ07z9dLtesfNj5q0FU3A5ObbwAAAABJRU5ErkJggg==);
+    background-position: top;
+    background-repeat: repeat-x;
+    height: 60px;
+    padding-bottom: 50px;
+    width: 100%;
+    transition: all 0.2s cubic-bezier(0, 0, 0.2, 1);
+  }
+  
+  /* responsive iframe with a 16:9 aspect ratio
+    thanks https://css-tricks.com/responsive-iframes/
+  */
+  .yt-lite::after {
+    content: "";
+    display: block;
+    padding-bottom: 40vh;
+  }
+  
+  /* [console log] what was this for? */
+  /* @media only screen and (max-width: 600px) {
+    body {
+      padding-bottom: calc(100% / (16 / 9));
+    }
+  } */
+  
+  .yt-lite > iframe {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+  
+  /* play button */
+  .yt-lite > .lty-playbtn {
+    width: 70px;
+    height: 46px;
+    background-color: #212121;
+    z-index: 1;
+    opacity: 0.8;
+    border-radius: 14%; /* TODO: Consider replacing this with YT's actual svg. Eh. */
+    transition: all 0.2s cubic-bezier(0, 0, 0.2, 1);
+  }
+  .yt-lite:hover > .lty-playbtn {
+    background-color: #f00;
+    opacity: 1;
+  }
+  /* play button triangle */
+  .yt-lite > .lty-playbtn:before {
+    content: '';
+    border-style: solid;
+    border-width: 11px 0 11px 19px;
+    border-color: transparent transparent transparent #fff;
+  }
+  
+  .yt-lite > .lty-playbtn,
+  .yt-lite > .lty-playbtn:before {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate3d(-50%, -50%, 0);
+  }
+  
+.drawerClass {
+  /*TODO  Figure out how to get theme directly in the component... this is a workaround */
+  background-color: #a41f15 !important;
+}
+
+  /* Post-click styles */
+  .yt-lite.lyt-activated {
+    cursor: unset;
+  }
+  .yt-lite.lyt-activated::before,
+  .yt-lite.lyt-activated > .lty-playbtn {
+    opacity: 0;
+    pointer-events: none;
+  }
+  /* */
+  
